@@ -5,10 +5,13 @@ arrayOtro = []
 
 
 dictionary.each do |palabra|
-    x = palabra.split('')
-    if x == palabrin.split('')
+    p x = palabra.split('')
+    z = palabrin.split('')
+    if x == z
         y = x.join
         arrayOtro.push(y)
+    elsif palabra.include?(palabrin)
+        arrayOtro.push(palabra)
     end
 end
 
