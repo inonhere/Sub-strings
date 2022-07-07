@@ -1,14 +1,16 @@
 dictionary = ["below","down","go","going","horn","how","howdy",
     "it","i","low","own","part","partner","sit"]
-palabrin = "low"
+palabrin = "Howdy partner, sit down! How's it going?"
 arrayOtro = []
 def substrings(words, dictio, dictioFinal)  
     dictio.each do |palabra|
-        dic_cortado = palabra.split('')
-        pal_cortado = words.split(' ')
+       dic_cortado = palabra.split('')
+       pal_cortado = words.split(' ')
         pal_cortado.each do |palabrota|
-            pal_corta = palabrota.split('')
-            pal_corta_unida = pal_corta.join
+            minus = palabrota.downcase
+            pal_corta = minus.split('')
+            filtro = pal_corta.reject {|i| i == ',' || i == '!'|| i == "'" || i == "?"}
+            p pal_corta_unida = filtro.join
             if dic_cortado == pal_corta
                 dic_unido = dic_cortado.join
                 dictioFinal.push(dic_unido)
@@ -20,3 +22,5 @@ def substrings(words, dictio, dictioFinal)
 end
 substrings(palabrin, dictionary, arrayOtro)
 p arrayOtro
+
+p arrayOtro.each_with_index.to_h
